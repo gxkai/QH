@@ -1,0 +1,41 @@
+Purging database...
+Running '/usr/local/lib/node_modules/run-rs/4.0.6/mongod' [ 27017, 27018, 27019 ]
+Starting replica set...
+Purging database...
+Running '/usr/local/lib/node_modules/run-rs/4.0.6/mongod' [ 27017, 27018, 27019 ]
+Starting replica set...
+Error: Could not start mongod on port 27017 because it is already in use
+    at /usr/local/lib/node_modules/run-rs/index.js:208:17
+    at Generator.throw (<anonymous>)
+    at onRejected (/usr/local/lib/node_modules/run-rs/node_modules/co/index.js:81:24)
+    at tryCatcher (/usr/local/lib/node_modules/run-rs/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/usr/local/lib/node_modules/run-rs/node_modules/bluebird/js/release/promise.js:517:31)
+    at Promise._settlePromise (/usr/local/lib/node_modules/run-rs/node_modules/bluebird/js/release/promise.js:574:18)
+    at Promise._settlePromise0 (/usr/local/lib/node_modules/run-rs/node_modules/bluebird/js/release/promise.js:619:10)
+    at Promise._settlePromises (/usr/local/lib/node_modules/run-rs/node_modules/bluebird/js/release/promise.js:695:18)
+    at _drainQueueStep (/usr/local/lib/node_modules/run-rs/node_modules/bluebird/js/release/async.js:138:12)
+    at _drainQueue (/usr/local/lib/node_modules/run-rs/node_modules/bluebird/js/release/async.js:131:9)
+    at Async._drainQueues (/usr/local/lib/node_modules/run-rs/node_modules/bluebird/js/release/async.js:147:5)
+    at Immediate.Async.drainQueues (/usr/local/lib/node_modules/run-rs/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:696:18)
+    at tryOnImmediate (timers.js:667:5)
+    at processImmediate (timers.js:649:5)
+Purging database...
+Running '/usr/local/lib/node_modules/run-rs/4.0.6/mongod' [ 27017, 27018, 27019 ]
+Starting replica set...
+Error: Could not start mongod on port 27018 because it is already in use
+    at /usr/local/lib/node_modules/run-rs/index.js:208:17
+    at Generator.throw (<anonymous>)
+    at onRejected (/usr/local/lib/node_modules/run-rs/node_modules/co/index.js:81:24)
+    at tryCatcher (/usr/local/lib/node_modules/run-rs/node_modules/bluebird/js/release/util.js:16:23)
+    at Promise._settlePromiseFromHandler (/usr/local/lib/node_modules/run-rs/node_modules/bluebird/js/release/promise.js:517:31)
+    at Promise._settlePromise (/usr/local/lib/node_modules/run-rs/node_modules/bluebird/js/release/promise.js:574:18)
+    at Promise._settlePromise0 (/usr/local/lib/node_modules/run-rs/node_modules/bluebird/js/release/promise.js:619:10)
+    at Promise._settlePromises (/usr/local/lib/node_modules/run-rs/node_modules/bluebird/js/release/promise.js:695:18)
+    at _drainQueueStep (/usr/local/lib/node_modules/run-rs/node_modules/bluebird/js/release/async.js:138:12)
+    at _drainQueue (/usr/local/lib/node_modules/run-rs/node_modules/bluebird/js/release/async.js:131:9)
+    at Async._drainQueues (/usr/local/lib/node_modules/run-rs/node_modules/bluebird/js/release/async.js:147:5)
+    at Immediate.Async.drainQueues (/usr/local/lib/node_modules/run-rs/node_modules/bluebird/js/release/async.js:17:14)
+    at runCallback (timers.js:696:18)
+    at tryOnImmediate (timers.js:667:5)
+    at processImmediate (timers.js:649:5)

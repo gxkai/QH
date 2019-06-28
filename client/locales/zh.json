@@ -1,0 +1,92 @@
+{
+  "index": "首页",
+  "line": "产线管理",
+  "line-company": "公司",
+  "line-factory": "工厂",
+  "line-workshop": "车间",
+  "line-line": "产线",
+  "line-line-flow-add": "流程增加",
+  "line-line-flow-edit": "流程编辑",
+  "line-line-flow-info": "流程查看",
+  "line-station": "工位",
+  "flow": "流程管理",
+  "flow-flow": "流程列表",
+  "flow-flow-add": "流程增加",
+  "flow-flow-edit": "流程编辑",
+  "flow-flow-info": "流程查看",
+  "flow-type": "类型列表",
+  "tool": "插件管理",
+  "tool-tool": "插件列表",
+  "product": "产品管理",
+  "product-product": "产品列表",
+  "process": "工艺管理",
+  "process-process": "工艺列表",
+  "goods":"物料管理",
+  "goods-goods": "物料列表",
+  "goods-goods-goodsSpec": "物料规格",
+  "goods-goods-goodsSpec-goodsBom": "物料BOM",
+  "inventory": "库存管理",
+  "inventory-inventory": "库存列表",
+  "inventory-supplier": "供应商列表",
+  "bom": "BOM管理",
+  "bom-bom": "BOM列表",
+  "bom-bom-add": "BOM导入",
+
+  "task": "计划管理",
+  "task-task": "计划列表",
+  "task-class": "班次列表",
+  "task-workorder": "工单列表",
+  "task-workorder-add": "工单增加",
+  "task-workorder-edit": "工单编辑",
+  "task-workorder-info": "工单查看",
+  "task-workorder-task": "产线绑定",
+  "task-workorder-task-flow": "流程绑定",
+  "task-workorder-task-flow-add": "流程增加",
+  "task-workorder-task-flow-edit": "流程编辑",
+  "task-workorder-task-flow-info": "流程查看",
+  "production": "生产管理",
+  "warehouse": "仓储物料",
+  "facility": "设备管理",
+  "integration": "系统集成",
+  "purchase": "采购管理",
+  "permission": "人员权限管理",
+  "productionInfo": "生产详情",
+  "production-Log": "产品日志",
+  "record": "产品日志",
+  "FLOW_EDIT": "编辑",
+  "FLOW_OPEN": "启用",
+  "FLOW_FORBIDDEN": "停用",
+
+  "LINE_EDIT": "编辑",
+  "LINE_OPEN": "启用",
+  "LINE_FORBIDDEN": "停用",
+
+  "WORKSHOP_OPEN": "启用",
+  "WORKSHOP_FORBIDDEN": "停用",
+
+  "GOODS_RAW": "原材料",
+  "GOODS_CONSUMABLE": "消耗品",
+  "GOODS_SEMI-FINISHED": "半成品",
+  "GOODS_FINISHED": "成品",
+
+  "NOH_ALLOW": "允许",
+  "NOH_DENY": "禁止",
+
+  "CheckGoods": "卡物料",
+
+  "head": {
+    "exit": "退出"
+  },
+  "side": {
+    "name": "智能工厂MES"
+  },
+  "button": {
+    "add": "新增",
+    "search": "搜索",
+    "clear": "清空"
+  },
+  "placeholder": {
+    "name": "请输入名称搜索",
+    "sn": "请输入编号搜索"
+  }
+}

@@ -1,0 +1,4 @@
+.hide {
+  @apply opacity-0;
+  width: 0;
+}

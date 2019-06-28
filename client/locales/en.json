@@ -1,0 +1,9 @@
+{
+  "index": "home",
+  "head": {
+    "exit": "exit"
+  },
+  "side": {
+    "name": "MES"
+  }
+}
