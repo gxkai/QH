@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 module.exports = {
   open() {
     try {
-      const url = `mongodb://139.196.102.55:37017,139.196.102.55:47017,139.196.102.55:57017/mes`
+      const url = `mongodb://139.196.102.55:37017,139.196.102.55:47017,139.196.102.55:57017/lqy`
       const user = ``
       const password = ``
       console.log(process.env.NODE_ENV, process.env.HTTP_URL)

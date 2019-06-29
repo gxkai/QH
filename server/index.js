@@ -45,19 +45,19 @@ async function start() {
 
   // Build in development
   console.log(config.dev)
-  if (config.dev) {
-    const builder = new Builder(nuxt)
-    await builder.build()
-  } else {
-    await nuxt.ready()
-  }
+  // if (config.dev) {
+  //   const builder = new Builder(nuxt)
+  //   await builder.build()
+  // } else {
+  //   await nuxt.ready()
+  // }
 
   app.use(ctx => {
     ctx.status = 200
     ctx.respond = false // Bypass Koa's built-in response handling
     ctx.req.ctx = ctx // This might be useful later on, e.g. in nuxtServerInit or with nuxt-stash
     ctx.req.session = ctx.session
-    nuxt.render(ctx.req, ctx.res)
+    // nuxt.render(ctx.req, ctx.res)
   })
 
   app.listen(port, host)
