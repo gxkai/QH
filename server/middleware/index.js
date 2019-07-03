@@ -56,17 +56,6 @@ module.exports = app => {
     ]
   })
 
-  app.use(async (ctx, next) => {
-    const token = ctx.request.query.token
-    if (token) {
-      console.log(`accept token:%s`, token)
-      ctx.session.token = token
-      const authUser = await app.service.auth.GetUserBaseInfo(ctx)
-      ctx.session.authUser = authUser
-    }
-    await next()
-  })
-
   /*
     socket.io
    */

@@ -1,8 +1,10 @@
+const crypto = require('crypto')
 const fs = require('fs')
 const path = require('path')
 const multer = require('koa-multer')
 const uuid = require('uuid')
 const moment = require('moment')
+const axios = require('axios')
 function getJsonTree(data, pid) {
   let itemArr = []
   for (let i = 0; i < data.length; i++) {
@@ -128,6 +130,44 @@ const storage = multer.diskStorage({
 const uplader = multer({
   storage: storage
 })
+/** ********************** 小程序*************************/
+const algorithm = process.env.algorithm
+const secret = process.env.secret
+async function getOpenId(code) {
+  const url = `https://api.weixin.qq.com/sns/jscode2session?appid=${
+    process.env.APP_KEY
+  }&secret=${
+    process.env.APP_SECRET
+  }&js_code=${code}&grant_type=authorization_code`
+  const {
+    data: { openid }
+  } = await axios.get(url)
+  return openid
+}
+
+function encode(id) {
+  const encoder = crypto.createCipher(algorithm, secret)
+  const str = [id, Date.now(), 'ikcamp2018'].join('|')
+  let encrypted = encoder.update(str, 'utf8', 'hex')
+  encrypted += encoder.final('hex')
+  return encrypted
+}
+
+function decode(str) {
+  const decoder = crypto.createDecipher(algorithm, secret)
+  let decoded = decoder.update(str, 'hex', 'utf8')
+  decoded += decoder.final('utf8')
+  const arr = decoded.split('|')
+  return {
+    id: arr[0],
+    timespan: parseInt(arr[1])
+  }
+}
+
+function encodeErCode() {
+  return encode(Math.random())
+}
+
 module.exports = {
   getJsonTree,
   getFile,
@@ -135,5 +175,9 @@ module.exports = {
   getWorkorderSn,
   queryFilter,
   sumStrings,
-  getLocalIP
+  getLocalIP,
+  getOpenId,
+  encode,
+  decode,
+  encodeErCode
 }

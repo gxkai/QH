@@ -3,7 +3,7 @@ const Koa = require('koa')
 const bodyParser = require('koa-bodyparser')
 const cors = require('koa-cors')
 const result = require('dotenv').config({
-  path: path.resolve(process.cwd(), `.env.${process.env.NODE_ENV}`)
+  path: path.resolve('./', `.env.${process.env.NODE_ENV}`)
 })
 if (result.error) {
   throw result.error
@@ -45,21 +45,20 @@ async function start() {
 
   // Build in development
   console.log(config.dev)
-  // if (config.dev) {
-  //   const builder = new Builder(nuxt)
-  //   await builder.build()
-  // } else {
-  //   await nuxt.ready()
-  // }
+  if (!config.dev) {
+    const builder = new Builder(nuxt)
+    await builder.build()
+  } else {
+    await nuxt.ready()
+  }
 
   app.use(ctx => {
     ctx.status = 200
     ctx.respond = false // Bypass Koa's built-in response handling
     ctx.req.ctx = ctx // This might be useful later on, e.g. in nuxtServerInit or with nuxt-stash
     ctx.req.session = ctx.session
-    // nuxt.render(ctx.req, ctx.res)
+    nuxt.render(ctx.req, ctx.res)
   })
-
   app.listen(port, host)
   consola.ready({
     message: `Server listening on http://${host}:${port}`,

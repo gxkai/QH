@@ -70,9 +70,5 @@ module.exports = options => {
     const { app } = ctx
     const { method, url } = ctx.request
     console.log(`${method} ${url}`)
-    if (method !== 'GET') {
-      logger.info(log)
-      await app.dao.log.add(JSON.parse(log))
-    }
   }
 }
