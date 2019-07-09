@@ -1,12 +1,11 @@
 const axios = require('axios')
 module.exports = {
-  async login({ ctx, openId, userInfo }) {
+  async login({ ctx, openId }) {
     const { app } = ctx
     let user = await app.db.model.User.findOne({ openId })
     if (!user) {
       user = await app.db.model.User.create({
-        openId,
-        userInfo
+        openId
       })
     }
     const id = user._id

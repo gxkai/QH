@@ -6,6 +6,7 @@ module.exports = {
   lastModified(schema, options) {
     schema.plugin(mongooseDelete, { deleteBy: true, overrideMethods: 'all' })
     schema.plugin(mongooseTimestamp)
+    schema.plugin(require('mongoose-autopopulate'))
     schema.post('init', function(doc) {
       // console.log('%s has been initialized from the db', doc._id)
     })

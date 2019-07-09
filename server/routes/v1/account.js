@@ -35,20 +35,39 @@ class AccountRouter {
   static async login(ctx) {
     console.log(1111)
     const { app } = ctx
-    const { code, userInfo } = ctx.validatedBody
+    const { code } = ctx.validatedBody
     const openid = await app.lib.util.getOpenId(code)
     let sessionKey = ''
     if (openid) {
       sessionKey = await app.service.user.login({
         ctx,
-        openId: openid,
-        userInfo
+        openId: openid
       })
       console.log(sessionKey)
     } else {
       ctx.throw(400, '登陆失败')
     }
     ctx.body = sessionKey
+    ctx.status = 200
+  }
+
+  @request('PUT', '/account/user')
+  @body({
+    userInfo: {
+      type: 'object',
+      required: true,
+      description: 'object'
+    }
+  })
+  @path({})
+  @middlewares([auth])
+  static async put(ctx) {
+    console.log(1111)
+    const { app } = ctx
+    const { userInfo } = ctx.validatedBody
+    await app.db.model.User.findByIdAndUpdate(ctx.state.user._id, { userInfo })
+    const user = await app.db.model.User.findById(ctx.state.user._id)
+    ctx.body = user
     ctx.status = 200
   }
   @request('GET', '/account/user')
