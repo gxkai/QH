@@ -1,19 +1,25 @@
 {
-  "name": "mes",
-  "script": "es5-server/index.js",
-  "cwd": "./",
-  "watch": [
-  ],
-  "ignore_watch": [
-    "node_modules",
-    "logs"
-  ],
-  "watch_options": {
-    "followSymlinks": false
-  },
-  "error_file": "./logs/app-err.log",
-  "out_file": "./logs/app-out.log",
-  "env": {
-    "NODE_ENV": "production"
-  }
+  "apps": [
+    {
+      "name": "mes",
+      "script": "server.js",
+      "cwd": "./",
+      "exec_mode": "cluster",
+      "instances": 2,
+      "instance_var": "INSTANCE_ID",
+      "watch": [],
+      "ignore_watch": ["node_modules", "logs"],
+      "watch_options": {
+        "followSymlinks": false
+      },
+//      "error_file": "./logs/app-err.log",
+//      "out_file": "./logs/app-out.log",
+      "log_file": "./logs/combined.log",
+      "env": {
+        "NODE_ENV": "development"
+      },
+      "time": true,
+      "merge-logs": true
+    }
+  ]
 }

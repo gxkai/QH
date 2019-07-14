@@ -22,15 +22,17 @@ module.exports = options => {
     type: 'dateFile',
     filename: `${dir}/task`,
     pattern: '-yyyy-MM-dd.log',
-    alwaysIncludePattern: true
+    alwaysIncludePattern: true,
+    layout: { type: 'messagePassThrough' }
   }
 
-  if (env === 'dev' || env === 'local' || env === 'development') {
-    appenders.out = {
-      type: 'console'
-    }
+  appenders.out = {
+    type: 'stdout'
   }
   const config = {
+    pm2: true,
+    pm2InstanceVar: 'INSTANCE_ID',
+    disableClustering: true,
     appenders,
     categories: {
       default: {
@@ -69,6 +71,6 @@ module.exports = options => {
     )
     const { app } = ctx
     const { method, url } = ctx.request
-    console.log(`${method} ${url}`)
+    ctx.logger.info(`${method} ${url}`)
   }
 }

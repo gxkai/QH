@@ -93,55 +93,6 @@ module.exports = app => {
       .limit(10)
     ctx.socket.emit('initData', initData)
   })
-  // setInterval(async () => {
-  //   const { _doc: appendData } = await app.db.model.ProductionLog.create({
-  //     product: '1',
-  //     material: '1',
-  //     dosage: '1',
-  //     operator: '1',
-  //     result: '1',
-  //     explanation: '1',
-  //     line: '5d1470d905a13ac541ae3b72'
-  //   })
-  //   app.home.to('5d1470d905a13ac541ae3b72').emit('appendData', appendData)
-  // }, 10000)
-
-  /*
-    消息推送
-   */
-  let $redis = require('redis')
-  const sub = $redis.createClient({ db: 1, host: '139.196.102.55', port: 6379 })
-  const pub = $redis.createClient({ db: 2, host: '139.196.102.55', port: 6379 })
-  sub.on('connect', () => {
-    console.log('sub connected ok')
-  })
-  sub.on('error', () => {
-    console.log('sub connected error')
-  })
-  pub.on('connect', () => {
-    console.log('sub connected ok')
-  })
-  pub.on('error', () => {
-    console.log('sub connected error')
-  })
-  let msgCount = 0
-
-  sub.on('subscribe', function(channel, count) {
-    pub.publish('a nice channel', 'I am sending a message.')
-    pub.publish('a nice channel', 'I am sending a second message.')
-    pub.publish('a nice channel', 'I am sending my last message.')
-  })
-
-  sub.on('message', function(channel, message) {
-    console.log('sub channel ' + channel + ': ' + message)
-    msgCount += 1
-    if (msgCount === 3) {
-      sub.unsubscribe()
-      sub.quit()
-      pub.quit()
-    }
-  })
-  sub.subscribe('a nice channel')
 
   // 增加错误的监听处理
   app.on('error', (err, ctx) => {

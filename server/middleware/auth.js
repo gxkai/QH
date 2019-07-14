@@ -1,4 +1,6 @@
 module.exports = async function(ctx, next) {
+  console.log(1111)
+  ctx.logger.info('1111111')
   const { app } = ctx
   const sessionKey = ctx.get('x-session')
   console.log(sessionKey)
